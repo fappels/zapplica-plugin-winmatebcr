@@ -1,0 +1,20 @@
+{
+  "name": "WinmateBCR",
+  "version": "1.0.1",
+  "description": "trigger and read barcodes from Winmate E series build in barcode scanner",
+  "cordova": {
+    "id": "zapplica-plugin-winmatebcr",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "Winmate",
+    "barcode reader",
+    "E series",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "francis.appels@z-application.com",
+  "license": "GPLv3"
+}

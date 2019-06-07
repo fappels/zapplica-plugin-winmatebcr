@@ -151,7 +151,14 @@ public class WinmateBCR extends CordovaPlugin {
 	    				} else if ((mState == STATE_DESTROYED)||(mState == STATE_ERROR))  {
 	    					callbackContext.error("Not Read");
 	    					break;
-	    				}
+						}
+						try {
+							Thread.sleep(50);
+						} catch (InterruptedException e) {
+							mState = STATE_ERROR;
+							callbackContext.error(e.getMessage());
+							break;
+						}
 	            	}
 	            }
 			});

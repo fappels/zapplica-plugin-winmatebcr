@@ -37,6 +37,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
 import android.os.Bundle;
+import android.os.Build;
 
 /**
  * @author francis.appels@yahoo.com
@@ -94,8 +95,11 @@ public class WinmateBCR extends CordovaPlugin {
         mCodeScanReceiver = new BCRBroadcastReceiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction(ACTION_FEEDBACK);
-
-        cordova.getActivity().registerReceiver(mCodeScanReceiver, filter);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            cordova.getActivity().registerReceiver(mCodeScanReceiver, filter, Context.RECEIVER_EXPORTED);
+        } else {
+            cordova.getActivity().registerReceiver(mCodeScanReceiver, filter);
+        }
         this.bCodeScanReceiverRegistered = true;
     }
 
